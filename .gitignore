@@ -4,3 +4,5 @@ node_modules/
 typings/
 nbproject/
 !systemjs.config.js
+.idea/
+.vscode/
