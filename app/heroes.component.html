@@ -1,3 +1,13 @@
+<h1>My First PrimeNG App</h1>
+<input type="text" pInputText=""/>
+
+
+<p-dataTable [value]="heroes">
+    <p-column field="id" header="Id"></p-column>
+    <p-column field="firstName" header="Vorname"></p-column>
+</p-dataTable>
+
+
 <h2>My Heroes</h2>
 <ul class="heroes">
     <li *ngFor="let hero of heroes"

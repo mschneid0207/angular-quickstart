@@ -1,5 +1,6 @@
 import {Injectable}  from '@angular/core';
 import {Hero} from './hero';
+import {Customer} from './customer';
 import {HEROES} from './mock-heroes';
 import {Http, Headers} from "@angular/http";
 
@@ -19,7 +20,7 @@ export class HeroService {
     }
 
     getHeroes(): Promise<Hero[]> {
-       return this.http.get(this.heroesUrl)
+        return this.http.get(this.heroesUrl)
             .toPromise()
             .then(response => response.json().data as Hero[])
             .catch(this.handleError);
@@ -30,18 +31,26 @@ export class HeroService {
         return Promise.reject(error.message || error);
     }
 
-    getCustomers(): Promise<Hero[]> {
-       // this.http.get(this.customerServiceUrl).map(response => this.response = response.json());
+    getCustomers(): Promise<Customer[]> {
+        // this.http.get(this.customerServiceUrl).map(response => this.response = response.json());
 
-       // console.log(this.response);
+        // console.log(this.response);
 
 
-       return this.http.get(this.customerServiceUrl)
+        return this.http.get(this.customerServiceUrl)
             .toPromise()
-            .then(response => response.json().customer as Hero[])
+            .then(response => {
+                let customers:Customer[] = [];
+                let responseData:any = response.json().customer;
+                for (let customer of responseData) {
+                    customers.push(new Customer(customer));
+                    console.log(customer);
+                }
+                return customers;
+                //return response.json().customer;
+            })
             .catch(this.handleError);
     }
-
 
 
     /*getHeroes(): Promise<Hero[]> {
