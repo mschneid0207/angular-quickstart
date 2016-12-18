@@ -4,11 +4,11 @@ import {Component} from '@angular/core';
     moduleId: module.id,
     selector: 'my-app',
     template: `
-   <h1>{{title}}</h1>
+  <!-- <h1>{{title}}</h1>
    <nav>
      <a routerLink="/dashboard">Dashboard</a>
      <a routerLink="/heroes">Heroes</a>
-   </nav>
+   </nav>-->
    <router-outlet></router-outlet>
  `,
     styleUrls: ['app.component.css']

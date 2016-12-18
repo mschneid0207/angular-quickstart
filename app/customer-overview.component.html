@@ -1,0 +1,13 @@
+<p-toolbar>
+    <div class="ui-toolbar-group-left">
+        <button pButton type="button" label="New" icon="fa-plus" routerLink="/customer-detail"></button>
+    </div>
+</p-toolbar>
+
+
+<p-dataTable [value]="customers" [responsive]="true">
+    <p-column field="id" header="Id"></p-column>
+    <p-column field="firstName" header="Vorname"></p-column>
+    <p-column field="lastName" header="Nachname"></p-column>
+    <p-column field="birthDate" header="Geburtsdatum"></p-column>
+</p-dataTable>

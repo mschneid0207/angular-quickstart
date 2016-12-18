@@ -10,9 +10,10 @@ import {AppComponent}   from './app.component';
 import {HeroDetailComponent} from './hero-detail.component';
 import {HeroesComponent} from './heroes.component';
 import {DashboardComponent} from './dashboard.component';
+import {CustomerOverviewComponent} from "./customer-overview.component";
 
 // PrimeNg
-import {InputTextModule, DataTableModule, SharedModule} from 'primeng/primeng';
+import {InputTextModule, DataTableModule, SharedModule, ToolbarModule, ButtonModule} from 'primeng/primeng';
 
 // services
 import {HeroService} from './hero.service';
@@ -23,11 +24,13 @@ import {AppRoutingModule} from './app-routing.module';
 // Imports for loading & configuring the in-memory web api
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
+import {CustomerDetailComponent} from "./customer-detail.component";
+
 
 
 @NgModule({
-    imports: [BrowserModule, FormsModule, HttpModule,  AppRoutingModule, InputTextModule, DataTableModule, SharedModule],
-    declarations: [AppComponent, HeroDetailComponent, HeroesComponent, DashboardComponent],
+    imports: [BrowserModule, FormsModule, HttpModule,  AppRoutingModule, InputTextModule, DataTableModule, SharedModule, ToolbarModule, ButtonModule],
+    declarations: [AppComponent, HeroDetailComponent, HeroesComponent, DashboardComponent, CustomerOverviewComponent, CustomerDetailComponent],
     providers: [HeroService],
     bootstrap: [AppComponent]
 })
