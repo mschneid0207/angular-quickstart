@@ -43,8 +43,10 @@ export class HeroService {
                 let customers:Customer[] = [];
                 let responseData:any = response.json().customer;
                 for (let customer of responseData) {
+                    let cust:Customer = new Customer((customer));
+                    //console.log("BirthDate: " + cust.birthDate);
                     customers.push(new Customer(customer));
-                    console.log(customer);
+                    //console.log("Customer: " + customer);
                 }
                 return customers;
                 //return response.json().customer;
