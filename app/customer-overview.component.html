@@ -5,9 +5,15 @@
 </p-toolbar>
 
 
-<p-dataTable [value]="customers" [responsive]="true">
+<p-dataTable [value]="customers" selectionMode="single" [(selection)]="selectedCustomer" [responsive]="true">
     <p-column field="id" header="Id"></p-column>
     <p-column field="firstName" header="Vorname"></p-column>
     <p-column field="lastName" header="Nachname"></p-column>
     <p-column field="birthDate" header="Geburtsdatum"></p-column>
+    <p-column styleClass="col-button">
+
+        <template let-customer="rowData" pTemplate="body">
+            <button type="button" pButton (click)="onClick(customer)" icon="fa-remove"></button>
+        </template>
+    </p-column>
 </p-dataTable>

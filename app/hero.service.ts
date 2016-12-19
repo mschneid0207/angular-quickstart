@@ -14,6 +14,7 @@ export class HeroService {
     private heroesUrl = 'app/heroes';  // URL to web api
     private customerServiceUrl = 'http://localhost:8080/getCustomers';
     private customerServiceUrl2 = 'http://localhost:8080/user/new';
+    private customerServiceUrl3 = 'http://localhost:8080/user/delete';
     private endpoint = 'https://restcountries.eu/rest/v1/region/Europe';
     private headers = new Headers({'Content-Type': 'application/json'});
     private response: String;
@@ -71,21 +72,30 @@ export class HeroService {
                 console.log("successfully created");
             }).catch(this.handleError);
 
-            //.map((res: Response) => res.json())
-            //.catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+        //.map((res: Response) => res.json())
+        //.catch((error: any) => Observable.throw(error.json().error || 'Server error'));
         //return customer;
+    }
+
+    deleteCustomer(id: number): Promise<void> {
+        console.log("deleteCustomer is called");
+        return this.http.delete(`${this.customerServiceUrl3}/${id}`)
+            .toPromise()
+            .then(response => {
+                console.log("successfully deleted");
+            }).catch(this.handleError);
     }
 
     // Add a new comment
     /*addComment(body: Object): Observable<Comment[]> {
-        let bodyString = JSON.stringify(body); // Stringify payload
-        let headers = new Headers({'Content-Type': 'application/json'}); // ... Set content type to JSON
-        let options = new RequestOptions({headers: headers}); // Create a request option
+     let bodyString = JSON.stringify(body); // Stringify payload
+     let headers = new Headers({'Content-Type': 'application/json'}); // ... Set content type to JSON
+     let options = new RequestOptions({headers: headers}); // Create a request option
 
-        return this.http.post(this.commentsUrl, body, options) // ...using post request
-            .map((res: Response) => res.json()) // ...and calling .json() on the response to return data
-            .catch((error: any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
-    }*/
+     return this.http.post(this.commentsUrl, body, options) // ...using post request
+     .map((res: Response) => res.json()) // ...and calling .json() on the response to return data
+     .catch((error: any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
+     }*/
 
 
     /*getHeroes(): Promise<Hero[]> {

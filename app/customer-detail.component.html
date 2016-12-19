@@ -4,4 +4,4 @@
 <label for="lastName">Nachname: </label>
 <input type="text" name="lastName" [(ngModel)]="selectedCustomer.lastName" pInputText />
 
-<button pButton type="button" (click)="createUser()" label="Speichern"></button>
+<button pButton type="button" (click)="createUser()" routerLink="/customer-overview" label="Speichern"></button>

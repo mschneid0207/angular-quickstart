@@ -15,7 +15,7 @@ export class CustomerOverviewComponent implements OnInit {
 
     heroes : Customer[];
     customers: Customer[];
-    selectedHero: Hero;
+    selectedCustomer: Customer;
 
     constructor(private heroService: HeroService, private router: Router) {
     }
@@ -35,6 +35,15 @@ export class CustomerOverviewComponent implements OnInit {
 
         // this.heroService.getCustomers();
         //this.heroService.getCustomers().then(heroes => this.heroes = heroes);
+    }
+
+    onClick(customer: Customer): void {
+        console.log("delete button was clicked " + customer.id);
+        this.heroService.deleteCustomer(customer.id).then(response => {
+            this.heroService.getCustomers().then(customers => {
+                this.customers = customers;
+            })
+        });
     }
 
 
