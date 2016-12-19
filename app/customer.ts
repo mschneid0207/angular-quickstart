@@ -10,4 +10,5 @@ export class Customer {
         this.lastName = data.lastName;
         this.birthDate = data.birthDate;
     }
+
 }

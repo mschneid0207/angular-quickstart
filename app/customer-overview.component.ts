@@ -29,7 +29,7 @@ export class CustomerOverviewComponent implements OnInit {
         this.heroService.getCustomers().then(customers => {
             this.customers = customers;
             for(let customer of this.customers) {
-                console.log(customer.birthDate);
+                console.log(customer);
             }
         });
 

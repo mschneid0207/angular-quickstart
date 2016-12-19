@@ -1,0 +1,2 @@
+proxy=http://surf.proxy.agis.allianz:8080
+rejectUnauthorized=false
