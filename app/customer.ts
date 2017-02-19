@@ -4,6 +4,7 @@ export class Customer {
     lastName: string;
     birthDate: string;
 
+
     constructor(data:any) {
         this.id = data.id;
         this.firstName = data.firstName;
